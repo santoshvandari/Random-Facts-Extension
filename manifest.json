@@ -1,0 +1,19 @@
+{
+    "name":"Random Facts",
+    "description":"Provides you the different mindblowing facts which may help you to know something new🙂.",
+    "version":"1.0.0",
+    "manifest_version":3,
+    "action":{
+        "default_popup":"index.html",
+        "default_icon":"icon/128.png",
+        "default_title":"Random Facts"
+    },
+    "permissions":["activeTab","scripting"],
+    "icons":{
+        "128":"icon/128.png",
+        "48":"icon/48.png",
+        "16":"icon/16.png"
+    },
+    "author":"Santosh Bhandari",
+    "short_name":"Facts"
+}
