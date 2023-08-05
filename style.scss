@@ -3,6 +3,45 @@
     padding: 0;
     box-sizing: border-box;
 }
+// variables 
+$bg:#2c3e50;
+$red:#f00;
+$lbl-clr:#0fc;
+$white:#fff;
+$input-border:#e74c3c;
+$btn-bg:#3498db;
+$black:#000;
+$factsclr:#17a2b8;
+$aqua: #0ff;
+// Mixins
+@mixin flexcenter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+@mixin Btn{
+    margin: 10px 0;
+    cursor: pointer;
+    background: $btn-bg;
+    color: $white;
+    border-radius: 5px;
+    transition: all  ease-in-out .2s;
+    &:hover{
+        background: $white;
+        color: $black;
+    }
+    &:active{
+        color: $white;
+        background: transparent;
+    }
+}
+@include positionAbs{
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
 body{
     height: 400px;
     width: 300px;
@@ -10,15 +49,11 @@ body{
         height: 100%;
         width: 100%;
         position: relative;
-        background-color:#2c3e50;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
+        background-color:$bg;
+        @include flexcenter;
         #error{
             display: none;
-            color: red;
+            color: $red;
             padding: 20px 0px;
         }
         .name{
@@ -27,44 +62,32 @@ body{
                 font-size: 20px;
                 padding: 5px 0px;
                 font-weight: bold;
-                color: #00ffcc;
-                text-shadow: 0px 0px 5px #fff;
+                color: $lbl-clr;
+                text-shadow: 0px 0px 5px $white;
             }
             input{
                 width: 250px;
                 height: 40px;
                 font-size: 20px;
                 outline: none;
-                border: 1px solid #e74c3c;
+                border: 1px solid $input-border;
                 border-radius: 5px;
                 padding: 3px 5px;
                 margin: 5px 0;
             }
             button{
-                margin: 10px 0;
+                @include Btn;
                 font-size: 20px;
                 padding: 8px 25px;
-                cursor: pointer;
-                background: #3498db;
-                color: #fff;
-                border: 2px solid #3498db;
-                border-radius: 5px;
+                border: 2px solid $btn-bg;
                 transition: all  ease-in-out .2s;
-                &:hover{
-                    background: #fff;
-                    color: #000;
-                }
-                &:active{
-                    color: #fff;
-                    background: transparent;
-                }
             }
         }
         .wrapper{
             .welcome{
                 p{
                     position: absolute;
-                    color: #fff;
+                    color: $white;
                     font-size: 18px;
                     top: 20px;
                     right: 10px;
@@ -73,46 +96,29 @@ body{
             .facts{
                 margin: 10px 0;
                 h3{
-                    color: #17a2b8;
+                    color: $factsclr;
                     font-size: 25px;
                     padding: 0px 25px;
                 }
             }
             .edit{
-                position: absolute;
-                bottom: 20px;
-                right: 10px;
-                #edit{
-                    margin: 10px 0;
-                    cursor: pointer;
-                    background: #3498db;
-                    color: #fff;
-                    font-size: 15px;
-                    padding: 2px 5px;
-                    border-radius: 5px;
-                    border: none;
-                    transition: all  ease-in-out .2s;
-                    &:hover{
-                        background: #fff;
-                        color:#000;
-                    }
-                    &:active{
-                        color: #fff;
-                        background: transparent;
-                    }
+               @include positionAbs;
+               #edit{
+                   @include Btn;
+                   font-size: 15px;
+                   padding: 2px 5px;
+                   border: none;
                 }
             }
         }
         footer{
-            position: absolute;
-            bottom: 20px;
-            right: 10px;
+            @include positionAbs;
             font-size: 10px;
             bottom: 5px;
-            color: #fff;
+            color: $white;
             a{
                 text-decoration: none;
-                color: aqua;
+                color: $aqua;
             }
         }
     }
